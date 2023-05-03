@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Gesture Recognition</title>
+    <link rel="stylesheet" href="./src/styles.css" />
+    <script type="module" src="./src/js/script.js"></script>
+  </head>
+  <body>
+    <div id="mobile-warning">
+      This experience is only available on widescreen displays.
+    </div>
+    <div id="container">
+      <canvas id="canvas" width="500" height="500"></canvas>
+      <div>
+        <button id="recognizeBtn">Recognize</button>
+        <button id="clearCanvasBtn">Clear Canvas</button>
+        <button id="addTemplateBtn">Add Template</button>
+        <button id="exportTemplatesBtn">Export Templates</button>
+      </div>
+    </div>
+    <script>
+      const mobileWarning = document.getElementById("mobile-warning");
+      const appContainer = document.getElementById("container");
+
+      if (window.innerWidth < 550 || window.innerHeight < 565) {
+        throw new Error(mobileWarning.innerText);
+      }
+
+      mobileWarning.remove();
+      appContainer.style.display = "flex";
+    </script>
+  </body>
+</html>
