@@ -71,8 +71,8 @@ const Gesture = class {
     const height = maxY - minY;
 
     const scaledPoints = this.points.map((point) => {
-      const scaledX = point.x * (size / width);
-      const scaledY = point.y * (size / height);
+      const scaledX = (point.x - minX) * (size / width);
+      const scaledY = (point.y - minY) * (size / height);
       return new Point(scaledX, scaledY);
     });
 

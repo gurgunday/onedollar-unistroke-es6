@@ -57,16 +57,14 @@ const Recognizer = class {
   }
 
   recognize(gesture) {
+    gesture = gesture.resample(numPoints).scaleToSquare(squareSize).translateToOrigin();
     let bestScore = Number.POSITIVE_INFINITY;
     let bestTemplate = null;
 
     for (const template of this.templates) {
       // Golden Section Search
       const { angle, distance } = Recognizer.distanceAtBestAngle(
-        gesture
-          .resample(numPoints)
-          .scaleToSquare(squareSize)
-          .translateToOrigin(),
+        gesture,
         template,
         -angleRange,
         angleRange,
